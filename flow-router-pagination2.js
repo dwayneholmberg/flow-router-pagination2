@@ -1,4 +1,4 @@
-var paginationBar;
+var flowRouterPaginationBar;
 
 Template.paginationBar.helpers({
   pages: function(count) {
