@@ -1,11 +1,11 @@
 var flowRouterPaginationBar;
 
-Template.paginationBar.helpers({
+Template.flowRouterPaginationBar.helpers({
   pages: function(count) {
     var current, total;
     current = parseInt(FlowRouter.getQueryParam('page')) || 0;
     total = Math.ceil(count / this.itemsPerPage);
-    return paginationBar(this.window, total, current);
+    return flowRouterPaginationBar(this.window, total, current);
   },
   pageNumber: function() {
     return this + 1;
@@ -32,12 +32,12 @@ Template.paginationBar.helpers({
     var all, current, total;
     current = parseInt(FlowRouter.getQueryParam('page')) || 0;
     total = Math.ceil(count / this.itemsPerPage);
-    all = paginationBar(this.window, total, current);
+    all = flowRouterPaginationBar(this.window, total, current);
     return current !== all.slice(-1)[0];
   }
 });
 
-Template.paginationBar.events({
+Template.flowRouterPaginationBar.events({
   'click .first': function(e, t) {
     e.preventDefault();
     return FlowRouter.setQueryParams({
@@ -79,7 +79,7 @@ Template.paginationBar.events({
   }
 });
 
-paginationBar = function(pwindow, total, current) {
+flowRouterPaginationBar = function(pwindow, total, current) {
   var end, i, ini, middle, results;
   middle = Math.ceil(pwindow / 2);
   ini = current - middle;
